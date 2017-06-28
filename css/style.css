@@ -1,0 +1,28 @@
+body {
+  background-color: #dadada;
+}
+
+h1 {
+  padding-top: 30px;
+}
+
+.searchText {
+  width: 200px;
+  border-width: 3px;
+}
+
+.randomBtn {
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 2px 2px;
+  
+}
+
+.resultSection {
+  margin-top:  50px;
+}
+
+.resultBtn {
+  font-size: 20px;
+  width: 80%;
+}
