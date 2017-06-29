@@ -42,12 +42,8 @@ $(document).ready(function() {
       url: apiUrl,
       data: {
         "action": "opensearch",
-        //"action": "query",
-        //"list": "search",  // new test
         "format": "json",
         "search": searchText,
-        //"srsearch": searchText,   // new test (added sr)
-        //"callback": "?"     // new test
       },
       
       success: function(data) {
@@ -55,9 +51,11 @@ $(document).ready(function() {
         console.log(data); // testing
 
         if (data[1].length < 1) {
+          $("#btn1 span").html("No results for this search");
           $("#btn1").removeClass('hidden');
         }
-        for (var i = 0; i < 10; i++) {
+
+        for (var i = 0; i < data[1].length; i++) {
           $("#btn"+i+" span").html(data[1][i]);
           $("#btn"+i+" p").html(data[2][i]);
           $("#btn"+i).attr("href", data[3][i]);
