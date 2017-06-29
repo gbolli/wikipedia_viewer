@@ -12,6 +12,14 @@ $(document).ready(function() {
     callWiki();
   });
   
+  // Click on random button
+
+  $(".randomBtn").on("click", function() {
+    $(".resultBtn").addClass("hidden");
+    $(".resultBtn p").html("");
+    $(".resultBtn").attr("href", "#");
+    callWikiRandom();
+  });
   
   // API call function
 
@@ -31,7 +39,7 @@ $(document).ready(function() {
       
       success: function(data) {
         
-        console.log(data); // testing
+        // console.log(data); // testing
         
         for (var i = 0; i < 10; i++) {
           $("#btn"+i+" span").html(data[1][i]);
@@ -39,8 +47,6 @@ $(document).ready(function() {
           $("#btn"+i).attr("href", data[3][i]);
           $("#btn"+i).removeClass('hidden');
         };
-      
-        
       }
     });
   }
@@ -48,7 +54,31 @@ $(document).ready(function() {
   // Random Wiki call function
 
   function callWikiRandom() {
-
+    var apiUrl = "http://crossorigin.me/" + apiUrlBase;
+    
+    $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: apiUrl,
+      data: {
+        "action": "query",
+        "format": "json",
+        "list": "random",
+        "rnlimit": 5
+      },
+      
+      success: function(data) {
+        
+        console.log(data); // testing
+        
+        for (var i = 0; i < 5; i++) {
+          $("#btn"+i+" span").html(data.query.random[i].title);
+          //$("#btn"+i+" p").html(data[2][i]);
+          //$("#btn"+i).attr("href", data[3][i]);
+          $("#btn"+i).removeClass('hidden');
+        };
+      }
+    });
   }
   
   // Testing
