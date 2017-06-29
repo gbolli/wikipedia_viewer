@@ -6,9 +6,6 @@ $(document).ready(function() {
   var apiUrlBase = "https://en.wikipedia.org/w/api.php?";
   var results = [];
 
-  // URL items
-  // "?action=query&list=search&srsearch="+$(".searchText").val()+"&format=json&callback=?"
-  
   // Click on search button
 
   $(".searchSubmit").on("click", function() {
@@ -17,6 +14,7 @@ $(document).ready(function() {
   
   
   // API call function
+
   function callWiki() {
     var apiUrl = "http://crossorigin.me/" + apiUrlBase;
     var searchText = $(".searchText").val();
@@ -38,16 +36,20 @@ $(document).ready(function() {
         for (var i = 0; i < 10; i++) {
           $("#btn"+i+" span").html(data[1][i]);
           $("#btn"+i+" p").html(data[2][i]);
+          $("#btn"+i).attr("href", data[3][i]);
           $("#btn"+i).removeClass('hidden');
         };
-        // removeClass('hidden');
+      
         
       }
     });
   }
   
   // Random Wiki call function
-  
+
+  function callWikiRandom() {
+
+  }
   
   // Testing
   // callWiki();
