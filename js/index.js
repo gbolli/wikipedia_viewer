@@ -10,18 +10,26 @@ $(document).ready(function() {
   // Click on search button
 
   $(".searchSubmit").on("click", function() {
+    clearButtons();
     callWiki();
   });
 
   // Click on random button
 
   $(".randomBtn").on("click", function() {
-    $(".resultBtn").addClass("hidden");
-    $(".resultBtn p").html("");
-    $(".resultBtn").attr("href", "#");
+    clearButtons();
     callWikiRandom();
   });
   
+  // function to clear buttons
+
+  function clearButtons() {
+    $(".resultBtn").addClass("hidden");
+    $(".resultBtn span").html("");
+    $(".resultBtn p").html("");
+    $(".resultBtn").attr("href", "#");
+  }
+
   // API call function
 
   function callWiki() {
@@ -34,14 +42,21 @@ $(document).ready(function() {
       url: apiUrl,
       data: {
         "action": "opensearch",
+        //"action": "query",
+        //"list": "search",  // new test
         "format": "json",
-        "search": searchText
+        "search": searchText,
+        //"srsearch": searchText,   // new test (added sr)
+        //"callback": "?"     // new test
       },
       
       success: function(data) {
         
-        // console.log(data); // testing
-        
+        console.log(data); // testing
+
+        if (data[1].length < 1) {
+          $("#btn1").removeClass('hidden');
+        }
         for (var i = 0; i < 10; i++) {
           $("#btn"+i+" span").html(data[1][i]);
           $("#btn"+i+" p").html(data[2][i]);
