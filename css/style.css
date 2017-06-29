@@ -1,9 +1,14 @@
 body {
-  background-color: #dadada;
+  background-color: white;
 }
 
 h1 {
   padding-top: 30px;
+}
+
+a {
+  color: black;
+  background-color: #dadada;
 }
 
 .searchText {
@@ -11,7 +16,14 @@ h1 {
   border-width: 3px;
 }
 
+.searchSubmit {
+  font-size: 20px;
+  margin: 0 5px 0 5px;
+  box-shadow: 2px 2px;
+}
+
 .randomBtn {
+  margin-left: 5px;
   font-size: 20px;
   font-weight: bold;
   box-shadow: 2px 2px;
@@ -25,4 +37,16 @@ h1 {
 .resultBtn {
   font-size: 20px;
   width: 80%;
+  text-align: left;
+  margin-top: 10px;
+  box-shadow: 2px 2px;
+}
+
+.resultBtn p {
+  white-space: normal;
+}
+
+.resultBtn span {
+  font-size: 30px;
+  white-space: normal;
 }
