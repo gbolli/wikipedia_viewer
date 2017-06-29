@@ -14,6 +14,15 @@ $(document).ready(function() {
     callWiki();
   });
 
+  // Press enter in search box
+
+  $(".searchText").on("keypress", function(e) {
+    if (e.keyCode == 13) {
+      clearButtons();
+      callWiki();
+    }
+  })
+
   // Click on random button
 
   $(".randomBtn").on("click", function() {
