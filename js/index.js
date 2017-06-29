@@ -12,7 +12,7 @@ $(document).ready(function() {
   $(".searchSubmit").on("click", function() {
     callWiki();
   });
-  
+
   // Click on random button
 
   $(".randomBtn").on("click", function() {
@@ -82,14 +82,10 @@ $(document).ready(function() {
           $("#btn"+i).removeClass('hidden');          
           // $("#btn"+i+" p").html(data2[2][i]);   // No paragraph for random
           $("#btn"+i).attr("href", wikiUrlBase + wikiRandomName);
-          
+
         };
       }
     });
-  }
-  
-  // Testing
-  // callWiki();
-  
+  } 
   
 });
