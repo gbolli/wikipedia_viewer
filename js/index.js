@@ -67,7 +67,10 @@ $(document).ready(function() {
         for (var i = 0; i < data[1].length; i++) {
           $("#btn"+i+" span").html(data[1][i]);
           $("#btn"+i+" p").html(data[2][i]);
-          $("#btn"+i).attr("href", data[3][i]);
+          $("#btn"+i).attr({
+                            href: data[3][i],
+                            target: "_blank"
+                            });
           $("#btn"+i).removeClass('hidden');
         };
       }
@@ -103,7 +106,10 @@ $(document).ready(function() {
           $("#btn"+i+" span").html(wikiRandomName);
           $("#btn"+i).removeClass('hidden');          
           // $("#btn"+i+" p").html(data2[2][i]);   // No paragraph for random
-          $("#btn"+i).attr("href", wikiUrlBase + wikiRandomName);
+          $("#btn"+i).attr({
+                            href: wikiUrlBase + wikiRandomName,
+                            target: "_blank"
+                          });
 
         };
       }
